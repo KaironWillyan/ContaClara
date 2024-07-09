@@ -1,0 +1,14 @@
+spring:
+  jackson:
+    time-zone: America/Sao_Paulo
+  jpa:
+    properties:
+      hibernate:
+        temp: use_jdbc_metadata_defaults=false
+  datasource:
+    driverClassName: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/conta_clara
+    username: postgres
+    password: 1234
+    testWhileIdle: true
+    validationQuery: SELECT 1
