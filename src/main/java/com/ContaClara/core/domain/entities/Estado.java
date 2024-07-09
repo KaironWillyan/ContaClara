@@ -7,6 +7,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -14,12 +15,16 @@ import java.util.List;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Endereco {
+@Table(name = "tb_estado")
+public class Estado {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String estado;
-    private String cidade;
+    private String nome;
+    private String uf;
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
+    @OneToMany
+    private List<Cidade> cidades;
 
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     @OneToMany
