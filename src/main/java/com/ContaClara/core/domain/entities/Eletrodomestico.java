@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@Table(name = "tb_eletrodomestico")
 public class Eletrodomestico {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,6 +26,6 @@ public class Eletrodomestico {
     private Double totalMensal;
 
     @ManyToOne
-    @JoinColumn(name = "fk_ambiente")
+    @JoinColumn(name = "fk_tb_ambiente")
     private Ambiente ambiente;
 }

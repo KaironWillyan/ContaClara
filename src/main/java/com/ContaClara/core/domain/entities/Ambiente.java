@@ -7,13 +7,13 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@Table(name = "tb_ambiente")
 public class Ambiente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,7 +22,7 @@ public class Ambiente {
     private Integer qtdPessoas;
 
     @ManyToOne
-    @JoinColumn(name = "fk_usuario")
+    @JoinColumn(name = "fk_tb_usuario")
     private Usuario usuario;
 
     @OneToMany(mappedBy = "ambiente")
